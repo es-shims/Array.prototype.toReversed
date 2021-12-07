@@ -1,0 +1,19 @@
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"rules": {
+		"id-length": "off",
+		"new-cap": ["error", {
+			"capIsNewExceptions": [
+				"ArrayCreate",
+				"CreateDataPropertyOrThrow",
+				"Get",
+				"LengthOfArrayLike",
+				"ToObject",
+				"ToString",
+			],
+		}],
+	},
+}
