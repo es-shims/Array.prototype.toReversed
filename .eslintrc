@@ -15,5 +15,18 @@
 				"ToString",
 			],
 		}],
+		"no-magic-numbers": ["error", {
+			"ignore": [0, 1],
+		}],
 	},
+
+	"overrides": [
+		{
+			"files": "test/**",
+			"rules": {
+				"max-lines-per-function": "off",
+				"no-magic-numbers": "off",
+			},
+		},
+	],
 }

@@ -14,6 +14,45 @@ module.exports = function (toReversed, t) {
 	three.reverse();
 	t.deepEqual(three, result, 'mutated original matches result');
 
+	t.test('getters', { skip: !Object.defineProperty }, function (st) {
+		var called = [];
+		var o = [0, 1, 2];
+		Object.defineProperty(o, '0', {
+			enumerable: true,
+			get: function () {
+				called.push(0);
+				return 'a';
+			}
+		});
+		Object.defineProperty(o, '1', {
+			enumerable: true,
+			get: function () {
+				called.push(1);
+				return 'b';
+			}
+		});
+		Object.defineProperty(o, '2', {
+			enumerable: true,
+			get: function () {
+				called.push(2);
+				return 'c';
+			}
+		});
+
+		st.deepEqual(
+			toReversed(o),
+			['c', 'b', 'a'],
+			'array with getters is reversed as expected'
+		);
+		st.deepEqual(
+			called,
+			[2, 1, 0],
+			'indexes are retrieved in reverse order'
+		);
+
+		st.end();
+	});
+
 	t.deepEqual(
 		toReversed('abc'),
 		['c', 'b', 'a'],
