@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.1](https://github.com/es-shims/Array.prototype.toReversed/compare/v1.0.0...v1.0.1) - 2022-04-02
+
+### Commits
+
+- [Fix] use a full matching implementation [`134ead0`](https://github.com/es-shims/Array.prototype.toReversed/commit/134ead0e18dab12600c61be20cd8010e9dd06ddd)
+- [readme] fix spec link [`325d830`](https://github.com/es-shims/Array.prototype.toReversed/commit/325d830b46472308a1f4cfee4721fcecff50760d)
+
 ## v1.0.0 - 2022-03-31
 
 ### Commits
