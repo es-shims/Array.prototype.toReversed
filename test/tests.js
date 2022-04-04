@@ -14,6 +14,45 @@ module.exports = function (toReversed, t) {
 	three.reverse();
 	t.deepEqual(three, result, 'mutated original matches result');
 
+	t.deepEqual(toReversed({ length: '2', 0: 1, 1: 2, 2: 3 }), [2, 1]);
+
+	var arrayLikeLengthValueOf = {
+		length: {
+			valueOf: function () { return 2; }
+		},
+		0: 1,
+		1: 2,
+		2: 3
+	};
+	t.deepEqual(toReversed(arrayLikeLengthValueOf), [2, 1]);
+
+	t.test('not positive integer lengths', function (st) {
+		st.deepEqual(toReversed({ length: -2 }), []);
+		st.deepEqual(toReversed({ length: 'dog' }), []);
+		st.deepEqual(toReversed({ length: NaN }), []);
+
+		st.end();
+	});
+
+	t.test('too-large lengths', function (st) {
+		var arrayLike = {
+			0: 0,
+			4294967295: 4294967295,
+			4294967296: 4294967296,
+			length: Math.pow(2, 32)
+		};
+
+		st['throws'](
+			function () { toReversed(arrayLike); },
+			RangeError
+		);
+
+		st.end();
+	});
+
+	t.deepEqual(toReversed(true), [], 'true yields empty array');
+	t.deepEqual(toReversed(false), [], 'false yields empty array');
+
 	t.test('getters', { skip: !Object.defineProperty }, function (st) {
 		var called = [];
 		var o = [0, 1, 2];
@@ -49,6 +88,32 @@ module.exports = function (toReversed, t) {
 			[2, 1, 0],
 			'indexes are retrieved in reverse order'
 		);
+
+		var arr1 = [0, 1, 2];
+		Object.defineProperty(arr1, '0', {
+			get: function () {
+				arr1.push(4);
+				return 0;
+			}
+		});
+
+		st.deepEqual(toReversed(arr1), [2, 1, 0]);
+
+		var arr = [0, 1, 2, 3, 4];
+
+		Array.prototype[1] = 5; // eslint-disable-line no-extend-native
+		st.teardown(function () {
+			delete Array.prototype[1];
+		});
+
+		Object.defineProperty(arr, '3', {
+			get: function () {
+				arr.length = 1;
+				return 3;
+			}
+		});
+
+		st.deepEqual(toReversed(arr), [4, 3, undefined, 5, 0]);
 
 		st.end();
 	});
