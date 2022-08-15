@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0](https://github.com/es-shims/Array.prototype.toReversed/compare/v1.0.1...v1.1.0) - 2022-08-14
+
+### Commits
+
+- [Tests] add more test coverage from https://github.com/tc39/test262/pull/3464 [`8c48c25`](https://github.com/es-shims/Array.prototype.toReversed/commit/8c48c25e6c9a20a727877e9da3479d0dd3b802fa)
+- [New] `shim`/`auto`: add `toReversed` to `Symbol.unscopables` [`25cce92`](https://github.com/es-shims/Array.prototype.toReversed/commit/25cce92c6c3106b0e55d5c90dde6db5aa548a6c9)
+- [Dev Deps] update `@ljharb/eslint-config`, `functions-have-names`, `tape` [`62b8bb1`](https://github.com/es-shims/Array.prototype.toReversed/commit/62b8bb149a9e343257a08d6944aba8c5772acc06)
+- [Deps] update `define-properties` [`35a88cb`](https://github.com/es-shims/Array.prototype.toReversed/commit/35a88cbde49fef9307b978de9be1ebe1cd37b889)
+
 ## [v1.0.1](https://github.com/es-shims/Array.prototype.toReversed/compare/v1.0.0...v1.0.1) - 2022-04-02
 
 ### Commits
