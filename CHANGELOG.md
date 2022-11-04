@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.1](https://github.com/es-shims/Array.prototype.toReversed/compare/v1.1.0...v1.1.1) - 2022-11-03
+
+### Commits
+
+- [Deps] update `es-abstract` [`6bf5a4f`](https://github.com/es-shims/Array.prototype.toReversed/commit/6bf5a4f8f1cacf076c48fd8724dc7d12948c285a)
+- [actions] update rebase action to use reusable workflow [`d4956c3`](https://github.com/es-shims/Array.prototype.toReversed/commit/d4956c31e9e7f0bf1320ad01cc130a6808aa448f)
+- [Dev Deps] update `aud`, `tape` [`e3a33ff`](https://github.com/es-shims/Array.prototype.toReversed/commit/e3a33ff068441f11e7221139ed0c1a5c8ce54892)
+
 ## [v1.1.0](https://github.com/es-shims/Array.prototype.toReversed/compare/v1.0.1...v1.1.0) - 2022-08-14
 
 ### Commits
